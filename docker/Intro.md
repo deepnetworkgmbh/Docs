@@ -1,19 +1,19 @@
-# What is Docker
-Docker is based on idea of containers: isolated userspace on top of OS kernel. Containers are self-contained packages, that includes everything needed to run it.
+# What is Docker?
+Docker is based on the idea of containerization: operating system level virtualization; an isolated userspace on top of OS kernel. Containers are self-contained packages and include everything needed to run it.
 
 Docker itself is the application, that using Linux Containers (or Hyper-V in case of Windows) helps to develop, ship and run applications.
 
 Basic intros from [independant author](https://devopscube.com/what-is-docker/) and [Docker Inc](https://www.docker.com/what-container)
 
 ## Docker architecture
-Docker is a client-server solution, consists of:
+Docker is a client-server solution which consists of:
 1. Docker daemon - the server, which listens to clients REST commands and manages Docker objects: _images_, _containers_, _volumes_, _networks_
-2. Docker client - in general, command-line tool, that listen to consumers commands (for example, `docker run`), transforms them into REST requests and sends to the Docker Daemon.
+2. Docker client - command-line tool to send commands (e.g. `docker run`) as REST requests to the Docker Daemon.
 
-Client may be installed on the same OS with Docker daemon or communicate with a remote one.
+Client can be installed on the same OS with the Docker daemon or communicate with a remote one.
 
 ### Docker images
-An _image_ is a **read-only** template with instructions for creating a Docker _container_. Often, an image is based on another image, with some additional customization. 
+An _image_ is a **read-only** template with instructions for creating a Docker _container_. Often an image is based on another image with some additional customization. 
 
 ### Docker container
 A _container_ is a runnable instance of an _image_. 
@@ -65,3 +65,10 @@ Note, *image_id* or *container_id* may consist of only first few characters of i
 	* `docker volume ls` - lists volumes
 	* `docker volume prune` - removes all unused local volumes
  	* `docker volume rm {volume_name}` - removes one or more volumes (using comma separator)
+	
+# Further reading
+[Operating system level virtualization](https://en.wikipedia.org/wiki/Operating-system-level_virtualization) - Wiki entry explaining virtualization provided at the user space by operating systems.
+
+[Linux namespaces](https://en.wikipedia.org/wiki/Linux_namespaces) - Wiki entry on how namespaces - which Docker relies on - work in Linux and what kind of isolation they provide.
+
+[Windows Containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/) - MSDN articles on windows containers.
