@@ -80,12 +80,16 @@ $ az aks get-credentials --resource-group <resource-group-name> --name <cluster-
 $ kubectl get nodes
   To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code <CODE> to authenticate.
 ```
+Note:
+> Guest users in Azure AD, such as if you are using a federated login from a different directory, are not supported. [*](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/aad-integration.md#integrate-azure-active-directory-with-azure-kubernetes-service)
 
 #### Authenticating within a Pod
 
 Service account credentials are the recommended way to authenticate within a Pod. By default, default service account is automatically assigned to the pod if no other service account is specified. If RBAC is not enabled in a cluster, default service account is enough for authentication and any request to API server will always authorized by default. If not, a service account with proper role or cluster role need to be created. Details are described in Authorization section.
+Note:
+> Service accounts are assigned to pods. So, it is not possible to have two containers in a single Pod that have different Service Accounts [*](https://github.com/kubernetes/kubernetes/issues/66020)
 
-#### Authenticationg Long Standing Jobs
+#### Authenticating Long Standing Jobs
 
 > Service account bearer tokens are perfectly valid to use outside the cluster and can be used to create identities for long standing jobs that wish to talk to the Kubernetes API. [*](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#service-account-tokens)
 
