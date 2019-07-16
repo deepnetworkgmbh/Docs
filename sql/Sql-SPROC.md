@@ -67,6 +67,13 @@ Here is a thorough description of differences:
 https://sqltutorialtips.blogspot.com/2017/06/raiserror-vs-throw.html
 ```
 
+## 7. Always set the Transaction ISOLATION LEVEL explictly.
+
+Don't depend on the default behavior that may or may not change by the deployment scripts.
+
+```
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+```
 
 
 ## 7. Use TRY-CATCH error handling
@@ -91,6 +98,7 @@ SET NOCOUNT ON;
 SET XACT_ABORT ON;    
   
 BEGIN TRY
+   SET TRANSACTION ISOLATION LEVEL ...
    BEGIN TRANSACTION
    -- vv------------
    -- MAIN CODE BLOCK
