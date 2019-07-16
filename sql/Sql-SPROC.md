@@ -50,7 +50,16 @@ BEGIN
 END  
 ```
 
-## 5. RAISEERROR vs. THROW
+## 5. Have a TRANSACTION Block
+
+Always wrap your operations within a TRANSACTION block
+```
+BEGIN TRANSACTION;
+COMMIT TRANSACTION
+```
+
+
+## 6. RAISEERROR vs. THROW
 Prefer Throw'ing in T-SQL.
 
 Here is a thorough description of differences:
@@ -60,7 +69,7 @@ https://sqltutorialtips.blogspot.com/2017/06/raiserror-vs-throw.html
 
 
 
-## 6. Use TRY-CATCH error handling
+## 7. Use TRY-CATCH error handling
 This is part of a bigger discussion of how to handle errors, and its a pretty involved one, please check the following blog about a more comprehensive discourse on this topic:
 
 ```
@@ -82,9 +91,11 @@ SET NOCOUNT ON;
 SET XACT_ABORT ON;    
   
 BEGIN TRY
+   BEGIN TRANSACTION
    -- vv------------
    -- MAIN CODE BLOCK
    -- ^^------------ 
+   COMMIT TRANSACTION
 END TRY
 BEGIN CATCH
    -- vv------------
