@@ -34,8 +34,17 @@ CREATE PROCEDURE [myschema].[pMySproc]
 
 ## 4. Always return a SPROC Return Code:
 
+## 5. RAISEERROR vs. THROW
+Prefer Throw'ing in T-SQL, `but` unfortunately you also need to occasionally RAISEERROR
 
-## 5. Use TRY-CATCH error handling
+Here is a thorough description of differences:
+```
+https://sqltutorialtips.blogspot.com/2017/06/raiserror-vs-throw.html
+```
+
+
+
+## 6. Use TRY-CATCH error handling
 This is part of a bigger discussion of how to handle errors, and its a pretty involved one, please check the following blog about a more comprehensive discourse on this topic:
 
 ```
