@@ -103,7 +103,7 @@ BEGIN CATCH
     SET @StopTime = SYSUTCDATETIME();    
     
     IF @MessageNumber < 50000    
-        RAISERROR (@MessageText, @ErrorSeverity, @ErrorState);    
+        THROW;
     ELSE    
         THROW @MessageNumber, @MessageText, @ErrorState   
    -- ^^------------ 
