@@ -29,5 +29,7 @@ On this note, Please be aware of the concept called `DB Ownership chaining`
 Even if the User is the `SYSTEM_USER` ensure its properly logged. Under cases where the SPROC is executed by a service, there is always the `SYSTEM_USER` and also if you use Row-Level Security and use the `SESSION_CONTEXT` bridge mark the appropriate context
 
 ```
- SET @SystemUser = 'Identifier: ' + ISNULL(CAST(SESSION_CONTEXT(N'UserId') AS NVARCHAR(255)), SYSTEM_USER) + ' IdentifierType: ' + ISNULL(CAST(SESSION_CONTEXT(N'IdType') AS NVARCHAR(255)), 'not set');  
+ SET @SystemUser = 
+ 'Identifier: ' + ISNULL(CAST(SESSION_CONTEXT(N'UserId') AS NVARCHAR(255)), SYSTEM_USER) + 
+ ' IdentifierType: ' + ISNULL(CAST(SESSION_CONTEXT(N'IdType') AS NVARCHAR(255)), 'not set');  
  ```
