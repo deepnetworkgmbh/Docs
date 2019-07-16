@@ -34,6 +34,21 @@ CREATE PROCEDURE [myschema].[pMySproc]
 
 ## 4. Always return a SPROC Return Code:
 
+Its critical to return at least some SUCCESS/FAIL error code, such as 0 for success and -1 for failure:
+
+```
+CREATE PROCEDURE [dtl].[pGenerateTripRoutesFromtripSegmentWaypoints]    
+(    
+ @Param1 BIT = 0,    
+ ...
+)    
+AS    
+BEGIN   
+    DECLARE @StoredProcReturnCode  INT    = 0;
+    RETURN @StoredProcReturnCode    
+END  
+```
+
 ## 5. RAISEERROR vs. THROW
 Prefer Throw'ing in T-SQL, `but` unfortunately you also need to occasionally RAISEERROR
 
@@ -92,6 +107,9 @@ BEGIN CATCH
         THROW @MessageNumber, @MessageText, @ErrorState   
    -- ^^------------ 
 END CATCH
+
+RETURN @StoredProcReturnCode    
+END  
 ```
 
 
