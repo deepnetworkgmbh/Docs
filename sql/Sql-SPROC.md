@@ -51,7 +51,7 @@ END
 ```
 
 ## 5. RAISEERROR vs. THROW
-Prefer Throw'ing in T-SQL, `but` unfortunately you also need to occasionally RAISEERROR
+Prefer Throw'ing in T-SQL.
 
 Here is a thorough description of differences:
 ```
