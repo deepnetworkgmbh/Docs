@@ -14,3 +14,22 @@ https://dba.stackexchange.com/questions/128535/in-what-cases-a-transaction-can-b
 ```
 The main point is: **With TRY-CATCH and with XACT_ABORT ON the transaction is doomed in all possible cases.**
 
+## 2. SET NOCOUNT ON
+
+This is an historical artifact from an era where the count returning result was also effecting the performance, the modern thinking is its no longer required, but doesn't harm either.
+
+More details here:
+http://daleburnett.com/2014/01/everything-ever-wanted-know-set-nocount/
+
+## 3. Put every SPROC into a particular SCHEMA
+
+The SPROC should be in the same set as the tables it modifies.
+
+```
+CREATE PROCEDURE [myschema].[pMySproc]    
+(    
+ @Param1 BIT = 0
+) 
+```
+
+## 4. 
