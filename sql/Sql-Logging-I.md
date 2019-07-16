@@ -1,10 +1,8 @@
-# How to do SQL Logging right
+# How to do SQL Logging in SPROCs
 
-This will be an introductory text for logging in a sequence of articles.
+One of the obscure arcana is how to perform Logging in Stored Procedures (SPROCs)
  
-Stored Procedure Logging (or tracing?) is an extremely important topic in SQL world. 
-
-Since most of the time we don't debug SPROCs line by line, and they pretty much execute behind the scenes, we need to able to trace if anything goes wrong for debugging or diagnostic purposes. 
+Especially in Azure SQL we can no longer debug SPROCs line by line, as such tracing is critical for debugging and diagnostic purposes. 
 
 Even if we return errors/warnings in the result sets; still as SQL developer, we would like to see what went wrong and how the problem occurred.
 
@@ -40,7 +38,8 @@ END
 ```
 
 ## Basic logging
-Let's try to introduce a very basic logging tool that will help us to keep history of our executions. To do that, we are just going to add every one of our SQL statements into our logging table. However, we don't have any SQL statement as `varchar` in our hands. So we need to change our function a bit. Also we need the `Logs` table to keep logging records.
+Let's try to introduce a very basic log table that will help us to keep history of our executions. Every SPROC adds the particular SQL statement executed into the logging table, with all its parameters. 
+However, there is no simply way of generating this `executed statement` string as `varchar`. So we need to change our SPROC a bit.
 
 ```
 CREATE TABLE [dbo].[Logs] (
@@ -75,7 +74,9 @@ BEGIN
 END
 ```
 
-Great! Every execution will now be inserted as rows into the `Logs` table. However, with this kind of logging, **ugly** `@SqlText` will be introduced in every function, procedure in our project; moreover, this will populate lots of lengthy records in the Logs table.
+Great! Every execution will now be inserted as rows into the `Logs` table. 
+
+However, with this kind of logging an additional, tracing only, `@SqlText` variable will be introduced in every SPROC in our project; moreover, this will populate lots of lengthy records in the Logs table.
 
 ## Redundant data in Logs
 
@@ -238,4 +239,5 @@ END
 
 Happy SQLogging,
 
-Enes Unal - DeepNetwork GmbH
+Enes Unal - Deep Network GmbH
+Savas Guven - Deep Network GmbH
