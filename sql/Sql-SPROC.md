@@ -34,7 +34,8 @@ CREATE PROCEDURE [myschema].[pMySproc]
 
 ## 4. Always return a SPROC Return Code:
 
-Its critical to return at least some SUCCESS/FAIL error code, such as 0 for success and -1 for failure:
+Its critical to return at least some SUCCESS/FAIL error code, such as 0 for success and -1 for failure.
+Or another alternative is to set the @@ROWCOUNT as the return code on success paths, since this is always a positive number, and set to -1 on failures.
 
 ```
 CREATE PROCEDURE [myschema].[pMySproc]    
