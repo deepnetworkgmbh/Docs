@@ -37,7 +37,7 @@ CREATE PROCEDURE [myschema].[pMySproc]
 Its critical to return at least some SUCCESS/FAIL error code, such as 0 for success and -1 for failure:
 
 ```
-CREATE PROCEDURE [dtl].[pGenerateTripRoutesFromtripSegmentWaypoints]    
+CREATE PROCEDURE [myschema].[pMySproc]    
 (    
  @Param1 BIT = 0,    
  ...
@@ -70,7 +70,7 @@ For many application developers in Java, C#, etc. the semantisc of a TRY-CATCH /
 So if we put everything we said until now together, the ideal boilerplate SPROC looks as following:
 
 ```
-CREATE PROCEDURE [dtl].[pGenerateTripRoutesFromtripSegmentWaypoints]    
+CREATE PROCEDURE [myschema].[pMySproc]    
 (    
  @Param1 BIT = 0,    
  ...
