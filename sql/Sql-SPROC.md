@@ -43,7 +43,7 @@ http://www.sommarskog.se/error-handling-I.html
 ```
 For many application developers in Java, C#, etc. the semantisc of a TRY-CATCH / THROW logic is pretty intuitive; but there are quite a few gotchas.
 
-So if we put all that we said until now the ideal boilerplate SPROC looks as following:
+So if we put everything we said until now together, the ideal boilerplate SPROC looks as following:
 
 ```
 CREATE PROCEDURE [dtl].[pGenerateTripRoutesFromtripSegmentWaypoints]    
