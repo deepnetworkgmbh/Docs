@@ -84,6 +84,8 @@ http://www.sommarskog.se/error-handling-I.html
 ```
 For many application developers in Java, C#, etc. the semantisc of a TRY-CATCH / THROW logic is pretty intuitive; but there are quite a few gotchas.
 
+## SUMMARY:
+
 So if we put everything we said until now together, the ideal boilerplate SPROC looks as following:
 
 ```
