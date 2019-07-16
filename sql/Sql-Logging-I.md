@@ -240,4 +240,5 @@ END
 Happy SQLogging,
 
 Enes Unal - Deep Network GmbH
+
 Savas Guven - Deep Network GmbH
